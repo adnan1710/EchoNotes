@@ -41,7 +41,6 @@ export default class DisplayNotes {
             });
         });
 
-        this.updateNotePreviewVisibility(false);
     }
 
     _createListItemHTML(id, title, body, updated) {
@@ -112,7 +111,4 @@ export default class DisplayNotes {
         this.root.querySelector(`.list_item[data-note-id="${note.id}"]`).classList.add("list_item--selected");
     }
 
-    updateNotePreviewVisibility(visible) {
-        this.root.querySelector(".preview").style.visibility = visible ? "visible" : "hidden";
-    }
 }
