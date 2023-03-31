@@ -8,16 +8,25 @@ export default class DisplayNotes {
         this.root.innerHTML = `
             <div class="sidebar">
                 <div class="your__notes">Your Notes</div>
+                <div class="sidebar_empty_msg">
+                    <h1>Your notes will appear here.</h1>
+                </div>
                 <div class="notes_list"></div>
             </div>
             <div class="preview">
                 <input class="note_title" type="text" placeholder="Note Title...">
                 <textarea class="note_body" placeholder="Take Note..."></textarea>
+
+                <div class="empty_msg">
+                    <h1>No notes to display. Click the button below to create a new note.</h1>
+                </div>
+
                 <p class="speech_instructions">Ready</p>
+
                 <div class="action_buttons">
-                <button class="speech-start" type="button">Speak</button>
-                <button class="speech-stop" type="button">Stop</button>
-                <button class="btnAdd" type="button">New Note</button>
+                    <button class="speech-start" type="button">Speak</button>
+                    <button class="speech-stop" type="button">Stop</button>
+                    <button class="btnAdd" type="button">New Note</button>
                 </div>
             </div>
         `;
@@ -41,6 +50,8 @@ export default class DisplayNotes {
             });
         });
 
+        this.updateNotePreviewVisibility(false);
+
     }
 
     _createListItemHTML(id, title, body, updated) {
@@ -48,6 +59,7 @@ export default class DisplayNotes {
 
         return `
             <div class="list_item" data-note-id="${id}">
+
                 <div class="small_title">
                     ${title}
                     <div class="delBtn">
@@ -109,6 +121,15 @@ export default class DisplayNotes {
         });
 
         this.root.querySelector(`.list_item[data-note-id="${note.id}"]`).classList.add("list_item--selected");
+    }
+
+    updateNotePreviewVisibility(visible) {
+        this.root.querySelector(".note_title").style.display = visible ? "block" : "none";
+        this.root.querySelector(".note_body").style.display = visible ? "block" : "none";
+        this.root.querySelector(".empty_msg").style.display = visible ? "none" : "block";
+        this.root.querySelector(".sidebar_empty_msg").style.display = visible ? "none" : "block";
+        // this.root.querySelector(".preview").style.display = visible ? "inline" : "block";
+
     }
 
 }
