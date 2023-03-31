@@ -52,15 +52,18 @@ body {
     border-radius: 5px;
     padding: 1.5em;
     height: 80vh;
+    position: relative;
 }
 
 .your__notes {
     margin: 0;
     font-size: 1.3em;
     color: var(--primary-color);
-    position: fixed;
-    width: 27%;
-    height: 5%;
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    width: 85%;
+    /* height: 5%; */
 }
 
 .notes_list {
