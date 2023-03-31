@@ -12,11 +12,12 @@ const stopBtn = document.querySelector(".speech-stop");
 
 let content = "";
 
-recognition.continuous = false;
+recognition.continuous = true;
 recognition.interimResults = true;
 
 const startRecognition = () => {
-    textbox.value = "";
+    // textbox.value = "";
+    content = " ";
     recognition.start();
     startBtn.style.display = "none";
     stopBtn.style.display = "inline";
@@ -36,7 +37,7 @@ recognition.onstart = () => (instructions.textContent = "Listening");
 recognition.onspeechend = () => {
     instructions.textContent = "No Activity";
     stopBtn.style.display = "none";
-    startBtn.style.display = "block";
+    startBtn.style.display = "inline";
 };
 
 recognition.onerror = () => {
@@ -47,8 +48,12 @@ recognition.onerror = () => {
 recognition.onresult = (event) => {
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
-    content += transcript;
-    textbox.value = content;
+    const isFinal = event.results[current].isFinal;
+
+    if (isFinal) {
+        content += transcript;
+        textbox.value = content;
+    }
 };
 
 startBtn.addEventListener("click", startRecognition);
