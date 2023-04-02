@@ -39,8 +39,8 @@ export default class MainApp {
             },
             note_addition: () => {
                 const newNote = {
-                    title: "ㅤ",
-                    body: "ㅤ"
+                    title: "",
+                    body: ""
                 };
 
                 Methods.note_save(newNote);
