@@ -5,59 +5,59 @@ export default class MainApp {
     constructor(root) {
         this.notes = [];
         this.activeNote = null;
-        this.view = new DisplayNotes(root, this._handlers());
+        this.view = new DisplayNotes(root, this.notes_methods());
 
-        this._refreshNotes();
+        this.refresh();
     }
 
-    _refreshNotes() {
-        const notes = Methods.getAllNotes();
+    refresh() {
+        const notes = Methods.load_notes();
 
-        this._setNotes(notes);
+        this.set_notes(notes);
 
         if (notes.length > 0) {
-            this._setActiveNote(notes[0]);
+            this.set_active_note(notes[0]);
         }
     }
 
-    _setNotes(notes) {
+    set_notes(notes) {
         this.notes = notes;
-        this.view.updateNoteList(notes);
-        this.view.updateNotePreviewVisibility(notes.length > 0);
+        this.view.update_note_sidebar_list(notes);
+        this.view.update_preview_visibility(notes.length > 0);
     }
 
-    _setActiveNote(note) {
+    set_active_note(note) {
         this.activeNote = note;
-        this.view.updateActiveNote(note);
+        this.view.ret_active_note(note);
     }
 
-    _handlers() {
+    notes_methods() {
         return {
-            onNoteSelect: noteId => {
+            note_selection: noteId => {
                 const selectedNote = this.notes.find(note => note.id == noteId);
-                this._setActiveNote(selectedNote);
+                this.set_active_note(selectedNote);
             },
-            onNoteAdd: () => {
+            note_addition: () => {
                 const newNote = {
-                    title: "",
-                    body: ""
+                    title: "ㅤ",
+                    body: "ㅤ"
                 };
 
-                Methods.saveNote(newNote);
-                this._refreshNotes();
+                Methods.note_save(newNote);
+                this.refresh();
             },
-            onNoteEdit: (title, body) => {
-                Methods.saveNote({
+            note_edit: (title, body) => {
+                Methods.note_save({
                     id: this.activeNote.id,
                     title,
                     body
                 });
 
-                this._refreshNotes();
+                this.refresh();
             },
-            onNoteDelete: noteId => {
-                Methods.deleteNote(noteId);
-                this._refreshNotes();
+            note_delete: noteId => {
+                Methods.note_delete(noteId);
+                this.refresh();
             },
         };
     }
