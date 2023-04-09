@@ -251,6 +251,7 @@ p {
     font-size: larger;
     cursor: pointer;
     border-radius: 0.3em;
+    display: none;
 }
 
 #sidebarBtn:hover{
@@ -317,6 +318,10 @@ p {
         visibility: visible;
         padding: 1.5em;
         border: 2px solid rgba(172, 172, 172, 0.475);
+    }
+
+    #sidebarBtn{
+        display: block;
     }
 }
 
