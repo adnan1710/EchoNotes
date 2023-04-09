@@ -1,5 +1,6 @@
 import DisplayNotes from "./DisplayNotes.js";
 import Methods from "./Methods.js";
+import SpeechInput from "./Speech.js";
 
 export default class MainApp {
     constructor(root) {
@@ -9,10 +10,14 @@ export default class MainApp {
 
         this.refresh();
         this.setup_sidebar();
-        
+        this.setup_speech();
+
+    }
+    setup_speech() {
+        const Speech = new SpeechInput();
     }
 
-    setup_sidebar(){
+    setup_sidebar() {
 
         const sidebarBtn = document.getElementById("sidebarBtn");
         const sideBar = document.querySelector(".sidebar");
