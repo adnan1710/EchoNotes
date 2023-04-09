@@ -8,6 +8,28 @@ export default class MainApp {
         this.view = new DisplayNotes(root, this.notes_methods());
 
         this.refresh();
+        this.setup_sidebar();
+        
+    }
+
+    setup_sidebar(){
+
+        const sidebarBtn = document.getElementById("sidebarBtn");
+        const sideBar = document.querySelector(".sidebar");
+        function openNav() {
+            sideBar.classList.add("sidebar_visible");
+        }
+        function closeNav() {
+            sideBar.classList.remove("sidebar_visible");
+        }
+        sidebarBtn.addEventListener("click", () => {
+            // console.log("Clicked");
+            if (sideBar.classList.contains("sidebar_visible")) {
+                closeNav();
+            } else {
+                openNav();
+            }
+        });
     }
 
     refresh() {

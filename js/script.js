@@ -59,23 +59,3 @@ recognition.onresult = (event) => {
 startBtn.addEventListener("click", startRecognition);
 stopBtn.addEventListener("click", stopRecognition);
 textbox.addEventListener("input", updateContent);
-
-const sidebarBtn = document.getElementById("sidebarBtn");
-const sideBar = document.querySelector(".sidebar");
-
-function openNav() {
-    sideBar.classList.add("sidebar_visible");
-}
-
-function closeNav() {
-    sideBar.classList.remove("sidebar_visible");
-}
-
-sidebarBtn.addEventListener("click", () => {
-    console.log("Clicked");
-    if(sideBar.classList.contains("sidebar_visible")){
-        closeNav();
-    } else {
-        openNav();
-    }
-});
