@@ -6,14 +6,14 @@ export default class DisplayNotes {
         this.note_edit = note_edit;
         this.note_delete = note_delete;
         this.root.innerHTML = `
-            <div class="sidebar">
+            <div class="sidebar glass">
                 <div class="your__notes">Your Notes</div>
                 <div class="sidebar_empty_msg">
                     <h1>Your notes will appear here.</h1>
                 </div>
                 <div class="notes_list"></div>
             </div>
-            <div class="preview">
+            <div class="preview glass">
                 <input class="note_title" type="text" placeholder="Note Title...">
                 <textarea class="note_body" placeholder="Take Note..."></textarea>
 
@@ -21,12 +21,14 @@ export default class DisplayNotes {
                     <h1>No notes to display. Click the button below to create a new note.</h1>
                 </div>
 
-                <p class="speech_instructions">Ready</p>
-
-                <div class="action_buttons">
-                    <button class="speech-start" type="button">Speak</button>
-                    <button class="speech-stop" type="button">Stop</button>
-                    <button class="btnAdd" type="button">New Note</button>
+                
+                <div class="footer">
+                    <div class="speech_instructions">Ready</div>
+                    <div class="action_buttons">
+                        <button class="speech-start" type="button">Speak</button>
+                        <button class="speech-stop" type="button">Stop</button>
+                        <button class="btnAdd" type="button">New Note</button>
+                    </div>
                 </div>
             </div>
         `;
