@@ -237,6 +237,10 @@ body {
     animation: noteSelected 0.3s ease-in-out;
 }
 
+.action_buttons img{
+    height: 1em;
+}
+
 .speech-stop {
     display: none;
 }

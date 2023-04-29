@@ -25,9 +25,9 @@ export default class DisplayNotes {
                 <div class="footer">
                     <div class="speech_instructions">Ready</div>
                     <div class="action_buttons">
-                        <button class="speech-start" type="button">Speak</button>
-                        <button class="speech-stop" type="button">Stop</button>
-                        <button class="btnAdd" type="button">New Note</button>
+                        <button class="speech-start" type="button"><img src="image/mic-icon.png"></button>
+                        <button class="speech-stop" type="button"><img src="image/mute-icon.png"></button>
+                        <button class="btnAdd" type="button"><img src="image/plus-icon.png"></button>
                     </div>
                 </div>
             </div>
