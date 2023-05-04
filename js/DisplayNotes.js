@@ -7,7 +7,7 @@ export default class DisplayNotes {
         this.note_delete = note_delete;
         this.root.innerHTML = `
             <div class="sidebar glass">
-                <div class="your__notes">Your Notes</div>
+                <div class="your__notes">My Notes</div>
                 <div class="sidebar_empty_msg">
                     <h1>Your notes will appear here.</h1>
                 </div>
